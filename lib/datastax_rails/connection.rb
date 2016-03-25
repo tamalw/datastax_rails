@@ -104,6 +104,11 @@ module DatastaxRails
           end
           cluster_options[:ssl] = ssl_context
         end
+        
+        if spec[:username] && spec[:password]
+          cluster_options[:username] = spec[:username]
+          cluster_options[:password] = spec[:password]
+        end
 
         self.current_server = spec[:servers].first
 
